@@ -1,342 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Varun Sharma | Backend Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharma Electronics Store</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg: #0f172a;
-  --card: #111827;
-  --accent: #06b6d4;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
+  --primary:#0d6efd;
+  --dark:#111;
+  --light:#f8f9fa;
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  scroll-behavior:smooth;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at 20% 20%, rgba(6,182,212,0.1), transparent 40%),
-              radial-gradient(circle at 80% 70%, rgba(6,182,212,0.08), transparent 40%),
-              var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  background:#f4f6f9;
+  padding-bottom:100px;
 }
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
-
-section{
-  padding:100px 0;
-}
-
-/* NAVBAR */
-
-nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(15,23,42,0.8);
-  backdrop-filter: blur(10px);
-  z-index:1000;
-}
-
-nav .container{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 0;
-}
-
-.logo{
-  font-weight:700;
-  font-size:20px;
-  color:var(--accent);
-}
-
-nav ul{
-  display:flex;
-  gap:30px;
-  list-style:none;
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  font-weight:500;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:var(--accent);
-}
-
-/* HERO */
-
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:48px;
-  font-weight:700;
-}
-
-.hero h1 span{
-  color:var(--accent);
-}
-
-.hero p{
-  margin-top:20px;
-  font-size:20px;
-  color:var(--muted);
-}
-
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:12px 28px;
-  background:var(--accent);
-  color:#000;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 20px rgba(6,182,212,0.5);
-}
-
-/* SECTION TITLES */
-
-.section-title{
-  font-size:32px;
-  margin-bottom:40px;
-  color:var(--accent);
-}
-
-/* SKILLS */
-
-.skills-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap:20px;
-}
-
-.skill{
-  background:var(--card);
+/* Header */
+header{
+  background:var(--primary);
+  color:white;
   padding:20px;
-  border-radius:10px;
   text-align:center;
+}
+
+header h1{
+  font-size:22px;
+}
+
+header p{
+  font-size:14px;
+  opacity:0.9;
+}
+
+/* Category Buttons */
+.categories{
+  display:flex;
+  gap:10px;
+  overflow:auto;
+  padding:15px;
+}
+
+.categories button{
+  padding:8px 15px;
+  border:none;
+  background:white;
+  border-radius:20px;
+  cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.categories button.active{
+  background:var(--primary);
+  color:white;
+}
+
+/* Product Grid */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:15px;
+  padding:15px;
+}
+
+.product{
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
   transition:0.3s;
 }
 
-.skill:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 15px rgba(6,182,212,0.3);
+.product:hover{
+  transform:translateY(-3px);
 }
 
-/* PROJECTS */
-
-.projects-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap:30px;
+.product img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:8px;
 }
 
-.project-card{
-  background:var(--card);
-  padding:25px;
-  border-radius:15px;
-  transition:0.4s;
-}
-
-.project-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(6,182,212,0.3);
-}
-
-.project-card h3{
-  margin-bottom:10px;
-}
-
-.project-card p{
-  color:var(--muted);
-  margin-bottom:15px;
-}
-
-.project-links a{
-  margin-right:15px;
-  text-decoration:none;
-  color:var(--accent);
-  font-weight:500;
-}
-
-/* CONTACT */
-
-.contact a{
-  display:block;
-  margin-bottom:15px;
-  color:var(--accent);
-  text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-  text-align:center;
-  padding:30px 0;
-  color:var(--muted);
+.product h3{
   font-size:14px;
+  margin:8px 0;
 }
 
-/* SCROLL ANIMATION */
-
-.hidden{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
+.product p{
+  font-size:13px;
+  color:#555;
 }
 
-.show{
-  opacity:1;
+.price{
+  font-weight:600;
+  margin:5px 0;
+}
+
+.add-btn{
+  width:100%;
+  padding:7px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* Cart Button */
+.cart-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--primary);
+  color:white;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:white;
+  font-size:12px;
+  width:20px;
+  height:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+}
+
+/* Cart Modal */
+.cart-modal{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  max-height:80%;
+  background:white;
+  border-radius:20px 20px 0 0;
+  box-shadow:0 -5px 20px rgba(0,0,0,0.2);
+  padding:20px;
+  overflow:auto;
+  transform:translateY(100%);
+  transition:0.3s;
+}
+
+.cart-modal.active{
   transform:translateY(0);
 }
 
-/* MOBILE */
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
 
-@media(max-width:768px){
+.qty-btn{
+  padding:3px 8px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
 
-  .hero h1{
-    font-size:34px;
-  }
+.checkout-btn{
+  width:100%;
+  padding:10px;
+  border:none;
+  background:green;
+  color:white;
+  border-radius:6px;
+  margin-top:15px;
+  cursor:pointer;
+}
 
-  nav ul{
-    gap:15px;
-  }
+/* WhatsApp */
+.whatsapp{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#25d366;
+  color:white;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="container">
-    <div class="logo">Varun.dev</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<header>
+<h1>Sharma Electronics Store</h1>
+<p>Affordable gadgets delivered in Varanasi, UP</p>
+</header>
 
-<!-- HERO -->
-<section class="hero container" id="home">
-  <div>
-    <h1>Hello, I'm <span>Varun Sharma</span></h1>
-    <p>Backend Developer | Building Secure & Scalable APIs</p>
-    <a href="#projects" class="btn">View Projects</a>
-  </div>
-</section>
+<div class="categories">
+<button onclick="filterCategory('All')" class="active">All</button>
+<button onclick="filterCategory('Electronic')">Electronic</button>
+</div>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container hidden">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">Spring Boot</div>
-      <div class="skill">REST APIs</div>
-      <div class="skill">JWT Authentication</div>
-      <div class="skill">AWS Deployment</div>
-      <div class="skill">MySQL</div>
-      <div class="skill">Docker</div>
-    </div>
-  </div>
-</section>
+<div class="products" id="productList"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container hidden">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
+<div class="cart-btn" onclick="toggleCart()">
+🛒
+<div class="cart-count" id="cartCount">0</div>
+</div>
 
-      <div class="project-card">
-        <h3>Ecommerce Backend</h3>
-        <p>Secure ecommerce backend built using Spring Boot, JWT authentication and role-based authorization deployed on AWS.</p>
-        <div class="project-links">
-          <a href="#">Live Demo</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
+<a class="whatsapp" href="https://wa.me/919999999999" target="_blank">💬</a>
 
-      <div class="project-card">
-        <h3>Library Management System</h3>
-        <p>Full system with QR scanner, 2-book restriction, MySQL integration and automated return reminders.</p>
-        <div class="project-links">
-          <a href="#">Live Demo</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
+<div class="cart-modal" id="cartModal">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<h3>Total: ₹<span id="cartTotal">0</span></h3>
+<button class="checkout-btn" onclick="checkout()">Place Order</button>
+</div>
 
-      <div class="project-card">
-        <h3>Hospital Management System</h3>
-        <p>Tkinter + MySQL based system with data validation, CRUD operations and database optimization.</p>
-        <div class="project-links">
-          <a href="#">Live Demo</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container hidden">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact">
-      <a href="mailto:varun@example.com">📧 varun@example.com</a>
-      <a href="https://github.com/yourgithub" target="_blank">💻 GitHub</a>
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank">🔗 LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 Varun Sharma. All rights reserved.
-</footer>
+<!-- Checkout Form -->
+<form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:none;">
+<input type="hidden" name="Order Details" id="orderDetails">
+<input type="text" name="Customer Name" placeholder="Your Name" required>
+<input type="text" name="Phone Number" placeholder="Phone Number" required>
+<textarea name="Delivery Address" placeholder="Delivery Address" required></textarea>
+<textarea name="Special Instructions" placeholder="Special Instructions (optional)"></textarea>
+<button type="submit">Submit Order</button>
+</form>
 
 <script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
+const products = [
+{ id:1,name:"Earbuds",price:400,category:"Electronic",image:"https://i.ibb.co/Vp0tNYnh/IMG-20260302-131217022.jpg",desc:"Gaming earbuds"},
+{ id:2,name:"Gaming Light",price:789,category:"Electronic",image:"https://i.ibb.co/SwnFZq66/IMG-20260302-131312980.jpg",desc:"RGB gaming light"}
+];
 
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderProducts(category="All"){
+const list=document.getElementById("productList");
+list.innerHTML="";
+products.filter(p=>category==="All"||p.category===category)
+.forEach(p=>{
+list.innerHTML+=`
+<div class="product">
+<img src="${p.image}" alt="${p.name}" loading="lazy">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<div class="price">₹${p.price}</div>
+<button class="add-btn" onclick="addToCart(${p.id})">Add to Cart</button>
+</div>`;
+});
+}
+
+function addToCart(id){
+const item=cart.find(i=>i.id===id);
+if(item){item.qty++;}
+else{
+const product=products.find(p=>p.id===id);
+cart.push({...product,qty:1});
+}
+saveCart();
+}
+
+function saveCart(){
+localStorage.setItem("cart",JSON.stringify(cart));
+updateCart();
+}
+
+function updateCart(){
+document.getElementById("cartCount").innerText=cart.reduce((a,b)=>a+b.qty,0);
+const items=document.getElementById("cartItems");
+items.innerHTML="";
+let total=0;
+cart.forEach(item=>{
+total+=item.price*item.qty;
+items.innerHTML+=`
+<div class="cart-item">
+${item.name} x${item.qty} - ₹${item.price*item.qty}
+<button onclick="removeItem(${item.id})">❌</button>
+</div>`;
+});
+document.getElementById("cartTotal").innerText=total;
+}
+
+function removeItem(id){
+cart=cart.filter(i=>i.id!==id);
+saveCart();
+}
+
+function toggleCart(){
+document.getElementById("cartModal").classList.toggle("active");
+}
+
+function checkout(){
+if(cart.length===0){alert("Cart is empty!");return;}
+let summary="";
+let total=0;
+cart.forEach(item=>{
+summary+=`${item.name} x${item.qty} = ₹${item.price*item.qty}\n`;
+total+=item.price*item.qty;
+});
+summary+=`\nTotal: ₹${total}`;
+document.getElementById("orderDetails").value=summary;
+document.getElementById("orderForm").style.display="block";
+}
+
+function filterCategory(cat){
+document.querySelectorAll(".categories button").forEach(btn=>btn.classList.remove("active"));
+event.target.classList.add("active");
+renderProducts(cat);
+}
+
+renderProducts();
+updateCart();
 </script>
 
 </body>
-                                        </html>
+</html>
